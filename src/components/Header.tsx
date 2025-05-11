@@ -10,6 +10,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import brandLogo from "@/assets/brand-logo.png";
 import ModeToggle from "@/components/mode-toggle";
+import navigationLinks from "@/components/navigation-links";
 
 type HeaderProps = {
     name: string;
@@ -30,29 +31,21 @@ const Header = ({ name } : HeaderProps) => {
             <div className="flex gap-3 md:gap-5 items-center">
                 <nav className="hidden md:flex" aria-label="Main Navigation">
                     <ul className="flex gap-10">
-                        <li>
-                            <a href="#">Home</a>
-                        </li>
-                        <li>
-                            <a href="#">About</a>
-                        </li>
-                        <li>
-                            <a href="#">Projects</a>
-                        </li>
-                        <li>
-                            <a href="#">Contact</a>
-                        </li>
+                        {navigationLinks.map((link) => (
+                            <li key={link.label}>
+                                <a href="{link.href}">{link.label}</a>
+                            </li>
+                        ))}
                     </ul>
                 </nav>
                 <NavigationMenu className="md:hidden">
                     <NavigationMenuList>
                         <NavigationMenuItem>
-                            <NavigationMenuTrigger>Menu</NavigationMenuTrigger>
+                            <NavigationMenuTrigger>☰</NavigationMenuTrigger>
                             <NavigationMenuContent>
-                                <NavigationMenuLink>Home</NavigationMenuLink>
-                                <NavigationMenuLink>About</NavigationMenuLink>
-                                <NavigationMenuLink>Projects</NavigationMenuLink>
-                                <NavigationMenuLink>Contact</NavigationMenuLink>
+                                {navigationLinks.map((link) => (
+                                    <NavigationMenuLink key={link.label}>{link.label}</NavigationMenuLink>
+                                ))}
                             </NavigationMenuContent>
                         </NavigationMenuItem>
                     </NavigationMenuList>
