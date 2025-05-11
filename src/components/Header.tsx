@@ -1,17 +1,67 @@
-const Header = () => {
-    return(
-        <header>
-            <h1>Jiro - Frontend Developer</h1>
-            <nav>
-                <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Projects</a></li>
-                    <li><a href="">Contact</a></li>
-                </ul>
-            </nav>
-            <button>Get in Touch</button>
-        </header>
-    )
+import { Button } from "@/components/ui/button";
+import {
+    NavigationMenu,
+    NavigationMenuContent,
+    NavigationMenuItem,
+    NavigationMenuLink,
+    NavigationMenuList,
+    NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import brandLogo from "@/assets/brand-logo.png";
+import ModeToggle from "@/components/mode-toggle";
+
+type HeaderProps = {
+    name: string;
 }
+
+const Header = ({ name } : HeaderProps) => {
+    return (
+        <header className="flex h-16 px-5 xl:px-50 items-center justify-between border-1 border-solid">
+            <div className="flex gap-5 items-center">
+                <Avatar>
+                    <AvatarImage src={brandLogo} />
+                    <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+                <h1 className="text-sm hidden md:flex md:text-lg font-bold">
+                    {name}
+                </h1>
+            </div>
+            <div className="flex gap-3 md:gap-5 items-center">
+                <nav className="hidden md:flex" aria-label="Main Navigation">
+                    <ul className="flex gap-10">
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">Projects</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+                <NavigationMenu className="md:hidden">
+                    <NavigationMenuList>
+                        <NavigationMenuItem>
+                            <NavigationMenuTrigger>Menu</NavigationMenuTrigger>
+                            <NavigationMenuContent>
+                                <NavigationMenuLink>Home</NavigationMenuLink>
+                                <NavigationMenuLink>About</NavigationMenuLink>
+                                <NavigationMenuLink>Projects</NavigationMenuLink>
+                                <NavigationMenuLink>Contact</NavigationMenuLink>
+                            </NavigationMenuContent>
+                        </NavigationMenuItem>
+                    </NavigationMenuList>
+                </NavigationMenu>
+                <Button variant="default" className="text-white">Get in Touch</Button>
+                <ModeToggle />
+            </div>
+        </header>
+    );
+};
+
 export default Header;
