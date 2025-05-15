@@ -33,7 +33,7 @@ const Header = ({ name } : HeaderProps) => {
                     <ul className="flex gap-10">
                         {navigationLinks.map((link) => (
                             <li key={link.label}>
-                                <a href="{link.href}">{link.label}</a>
+                                <a href={link.href}>{link.label}</a>
                             </li>
                         ))}
                     </ul>
