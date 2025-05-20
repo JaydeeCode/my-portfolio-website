@@ -12,7 +12,7 @@ Here are the technologies and tools I am using in development.
 
 - **Languages:** HTML5, CSS3, JavaScript (ES6+), TypeScript
 - **Frontend:** React.js, Shadcn UI, Tailwind CSS, Vite, Responsive Design, User-Centric UI Design
-- **Development Tools:** Git, GitHub, npm, Visual Studio Code
+- **Development Tools:** Git, GitHub, npm, Visual Studio Code, Jira (task & project management)
 - **Testing & Debugging:** React Developer Tools, Pesticide, Lighthouse
 - **System Design & Methodology:** Agile (Iterative Development)
 - **Hosting:** To be deployed in GitHub Pages.
